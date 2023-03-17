@@ -2,7 +2,7 @@ import mongoose, { Date, Document } from 'mongoose';
 import { ObjectId } from 'mongodb';
 
 export interface ISupplierDocument extends Document {
-  SupplierID: number | ObjectId;
+  SupplierID: string | number | ObjectId;
   CompanyName: string;
   ContactName: string;
   ContactTitle: string;

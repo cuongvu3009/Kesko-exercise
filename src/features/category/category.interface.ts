@@ -5,5 +5,5 @@ export interface ICategoryDocument extends Document {
   CategoryID: string | number | ObjectId;
   CategoryName: string;
   Description: string;
-  Picture: string;
+  Picture: Buffer;
 }
