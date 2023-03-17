@@ -3,8 +3,8 @@ import { ObjectId } from 'mongodb';
 
 export interface IOrderDocument extends Document {
   OrderID: string | number | ObjectId;
-  CustomerID: string | ObjectId;
-  EmployeeID: string | ObjectId;
+  CustomerID: string | number | ObjectId;
+  EmployeeID: string | number | ObjectId;
   OrderDate: Date;
   RequiredDate: Date;
   ShippedDate: Date;
@@ -18,8 +18,8 @@ export interface IOrderDocument extends Document {
 }
 
 export interface IOrderDetails extends Document {
-  OrderID: number | ObjectId;
-  ProductID: number | ObjectId;
+  OrderID: string | number | ObjectId;
+  ProductID: string | number | ObjectId;
   UnitPrice: number;
   Quantity: number;
   Discount: number;
