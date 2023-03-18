@@ -1,0 +1,18 @@
+[
+  {
+    "RegionDescription": "Eastern                                           ",
+    "RegionID": 1
+  },
+  {
+    "RegionDescription": "Westerns                                           ",
+    "RegionID": 2
+  },
+  {
+    "RegionDescription": "Northern                                          ",
+    "RegionID": 3
+  },
+  {
+    "RegionDescription": "Southern                                          ",
+    "RegionID": 4
+  }
+]

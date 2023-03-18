@@ -5,7 +5,7 @@ import cloudinary from 'cloudinary';
 dotenv.config();
 
 class Config {
-  public DATABASE_URL: string | undefined;
+  public DATABASE_URL: string;
   public JWT_TOKEN: string | undefined;
   public SECRET_KEY_ONE: string | undefined;
   public SECRET_KEY_TWO: string | undefined;
@@ -18,7 +18,7 @@ class Config {
   public CLOUDINARY_API_SECRET: string | undefined;
 
   private readonly DEFAULT_DATABASE_URL =
-    'mongodb+srv://cuong:1234@nodeexpressproject.nlzou.mongodb.net/Chatty-App?retryWrites=true&w=majority';
+    'mongodb+srv://cuong:1234@nodeexpressproject.nlzou.mongodb.net/Kesko-Exercise?retryWrites=true&w=majority';
   private readonly DEFAULT_NODE_ENV = 'development';
   private readonly DEFAULT_CLIENT_URL = 'http://localhost:3000';
 

@@ -1,10 +1,10 @@
-import mongoose, { model, Model, Schema } from 'mongoose';
+import { model, Model, Schema } from 'mongoose';
 import { ICustomerDocument } from '@customer/customer.interface';
 
 const customerSchema: Schema = new Schema({
   CustomerID: { type: String },
-  CompanyName: { type: String, default: '' },
-  ContactName: { type: String }, // casted to MongoDB's BSON type: binData
+  CompanyName: { type: String },
+  ContactName: { type: String },
   ContactTile: { type: String },
   City: { type: String },
   Address: { type: String },
@@ -15,5 +15,5 @@ const customerSchema: Schema = new Schema({
   Fax: { type: String }
 });
 
-const CustomerModel: Model<ICustomerDocument> = model<ICustomerDocument>('Customer', customerSchema, 'Customer');
+const CustomerModel: Model<ICustomerDocument> = model<ICustomerDocument>('Customers', customerSchema, 'Customers');
 export { CustomerModel };

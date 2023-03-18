@@ -1,9 +1,9 @@
-import mongoose, { model, Model, Schema } from 'mongoose';
-import { IEmployeeDocument } from './employee.interface';
+import { model, Model, Schema } from 'mongoose';
+import { IEmployeeDocument, IEmployeeTerritoryDocument } from './employee.interface';
 
 const employeeSchema: Schema = new Schema({
-  EmployeeID: { type: String },
-  LastName: { type: String, default: '' },
+  EmployeeID: { type: Number },
+  LastName: { type: String },
   FirstName: { type: String },
   Title: { type: String },
   TitleOfCourtesy: { type: String },
@@ -22,5 +22,15 @@ const employeeSchema: Schema = new Schema({
   PhotoPath: { type: String }
 });
 
-const EmployeeModel: Model<IEmployeeDocument> = model<IEmployeeDocument>('Employee', employeeSchema, 'Employee');
-export { EmployeeModel };
+const employeeTerritoriesSchema: Schema = new Schema({
+  EmployeeID: { type: Number },
+  TerritoryID: { type: String }
+});
+
+const EmployeeModel: Model<IEmployeeDocument> = model<IEmployeeDocument>('Employees', employeeSchema, 'Employees');
+const EmployeeTerritoryModel: Model<IEmployeeTerritoryDocument> = model<IEmployeeTerritoryDocument>(
+  'EmployeeTerritories',
+  employeeTerritoriesSchema,
+  'EmployeeTerritories'
+);
+export { EmployeeModel, EmployeeTerritoryModel };

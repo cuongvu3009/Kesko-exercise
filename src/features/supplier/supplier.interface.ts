@@ -1,8 +1,7 @@
-import mongoose, { Date, Document } from 'mongoose';
-import { ObjectId } from 'mongodb';
+import { Document, ObjectId } from 'mongoose';
 
 export interface ISupplierDocument extends Document {
-  SupplierID: string | number | ObjectId;
+  SupplierID: number | ObjectId;
   CompanyName: string;
   ContactName: string;
   ContactTitle: string;

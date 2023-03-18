@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Categories",
+        "seq": 8
+    },
+    {
+        "name": "Employees",
+        "seq": 9
+    },
+    {
+        "name": "Orders",
+        "seq": 11077
+    },
+    {
+        "name": "Products",
+        "seq": 77
+    },
+    {
+        "name": "Shippers",
+        "seq": 3
+    },
+    {
+        "name": "Suppliers",
+        "seq": 29
+    }
+]

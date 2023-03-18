@@ -1,13 +1,12 @@
-import mongoose, { Date, Document } from 'mongoose';
-import { ObjectId } from 'mongodb';
+import { Document, ObjectId } from 'mongoose';
 
 export interface ITerritoryDocument extends Document {
-  TerritoryID: string | number | ObjectId;
+  TerritoryID: string | ObjectId;
   TerritoryDescription: string;
-  RegionID: number | string | ObjectId;
+  RegionID: number;
 }
 
 export interface IRegionDocument extends Document {
-  RegionID: string | number | ObjectId;
+  RegionID: number | ObjectId;
   RegionDescription: string;
 }

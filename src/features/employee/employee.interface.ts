@@ -1,8 +1,7 @@
-import mongoose, { Date, Document } from 'mongoose';
-import { ObjectId } from 'mongodb';
+import { Date, Document, ObjectId } from 'mongoose';
 
 export interface IEmployeeDocument extends Document {
-  EmployeeID: string | number | ObjectId;
+  EmployeeID: number | ObjectId;
   LastName: string;
   FirstName: string;
   Title: string;
@@ -20,4 +19,9 @@ export interface IEmployeeDocument extends Document {
   Notes: string;
   ReportsTo: number;
   PhotoPath: string;
+}
+
+export interface IEmployeeTerritoryDocument extends Document {
+  EmployeeID: number | ObjectId;
+  TerritoryID: string | ObjectId;
 }

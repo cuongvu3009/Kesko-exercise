@@ -1,10 +1,10 @@
-import mongoose, { model, Model, Schema } from 'mongoose';
+import { model, Model, Schema } from 'mongoose';
 import { IOrderDocument, IOrderDetails } from './order.interface';
 
 const orderSchema: Schema = new Schema({
   OrderID: { type: String },
-  CustomerID: { type: mongoose.Schema.Types.ObjectId, ref: 'Customer', index: true },
-  EmployeeID: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee', index: true },
+  CustomerID: { type: Schema.Types.ObjectId, ref: 'Customers' },
+  EmployeeID: { type: Schema.Types.ObjectId, ref: 'Employees' },
   OrderDate: { type: Date },
   RequiredDate: { type: Date },
   ShippedDate: { type: Date },
@@ -18,13 +18,13 @@ const orderSchema: Schema = new Schema({
 });
 
 const orderDetailsSchema: Schema = new Schema({
-  OrderID: { type: mongoose.Schema.Types.ObjectId, ref: 'Order', index: true },
-  ProductID: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', index: true },
+  OrderID: { type: Number },
+  ProductID: { type: Schema.Types.ObjectId, ref: 'Products' },
   UnitPrice: { type: Number },
   Quantity: { type: Number },
   Discount: { type: Number }
 });
 
-const OrderModel: Model<IOrderDocument> = model<IOrderDocument>('Order', orderSchema, 'Order');
+const OrderModel: Model<IOrderDocument> = model<IOrderDocument>('Orders', orderSchema, 'Orders');
 const OrderDetailsModel: Model<IOrderDetails> = model<IOrderDetails>('OrderDetails', orderDetailsSchema, 'OrderDetails');
 export { OrderModel, OrderDetailsModel };

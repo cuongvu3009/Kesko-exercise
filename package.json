@@ -1,10 +1,11 @@
 {
-  "name": "chatty-backend",
+  "name": "kesko-backend",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon ./build/src/app.js | bunyan",
+    "populate": "node ./build/src/populate.js | bunyan",
     "dev": "nodemon -r tsconfig-paths/register src/app.ts | bunyan",
     "lint:check": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\" --fix",

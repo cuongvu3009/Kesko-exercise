@@ -1,12 +1,10 @@
-import { Application } from 'express';
+import { Application, Request, Response, NextFunction } from 'express';
 
 const BASE_PATH = '/api/v1';
 
 export default (app: Application) => {
   const routes = () => {
-    app.use(BASE_PATH, (req, res) => {
-      res.send('Hello World');
-    });
+    app.use(BASE_PATH);
   };
   routes();
 };

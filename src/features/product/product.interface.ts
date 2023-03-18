@@ -1,10 +1,10 @@
-import mongoose, { Document } from 'mongoose';
+import { Document } from 'mongoose';
 import { ObjectId } from 'mongodb';
 
 export interface IProductDocument extends Document {
-  ProductID: string | number | ObjectId;
-  SupplierID: string | number | ObjectId;
-  CategoryID: string | number | ObjectId;
+  ProductID: number | ObjectId;
+  SupplierID: number | ObjectId;
+  CategoryID: number | ObjectId;
   ProductName: string;
   Phone: string;
   QuantityPerUnit: string;

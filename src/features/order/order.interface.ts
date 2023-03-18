@@ -1,10 +1,10 @@
-import mongoose, { Date, Document } from 'mongoose';
+import { Date, Document } from 'mongoose';
 import { ObjectId } from 'mongodb';
 
 export interface IOrderDocument extends Document {
-  OrderID: string | number | ObjectId;
-  CustomerID: string | number | ObjectId;
-  EmployeeID: string | number | ObjectId;
+  OrderID: number | ObjectId;
+  CustomerID: string | ObjectId;
+  EmployeeID: number | ObjectId;
   OrderDate: Date;
   RequiredDate: Date;
   ShippedDate: Date;
@@ -18,8 +18,8 @@ export interface IOrderDocument extends Document {
 }
 
 export interface IOrderDetails extends Document {
-  OrderID: string | number | ObjectId;
-  ProductID: string | number | ObjectId;
+  OrderID: number | ObjectId;
+  ProductID: number | ObjectId;
   UnitPrice: number;
   Quantity: number;
   Discount: number;

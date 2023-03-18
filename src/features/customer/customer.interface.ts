@@ -1,8 +1,7 @@
 import mongoose, { Document } from 'mongoose';
-import { ObjectId } from 'mongodb';
 
 export interface ICustomerDocument extends Document {
-  CustomerID: string | number | ObjectId;
+  CustomerID: string | mongoose.Types.ObjectId;
   CompanyName: string;
   ContactName: string;
   ContactTile: string;

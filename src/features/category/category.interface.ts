@@ -1,8 +1,7 @@
-import mongoose, { Document } from 'mongoose';
-import { ObjectId } from 'mongodb';
+import { Document, ObjectId } from 'mongoose';
 
 export interface ICategoryDocument extends Document {
-  CategoryID: string | number | ObjectId;
+  CategoryID: number | ObjectId;
   CategoryName: string;
   Description: string;
   Picture: Buffer;

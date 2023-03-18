@@ -1,8 +1,8 @@
-import mongoose, { model, Model, Schema } from 'mongoose';
+import { model, Model, Schema } from 'mongoose';
 import { ISupplierDocument } from './supplier.interface';
 
 const supplierSchema: Schema = new Schema({
-  SupplierID: { type: String },
+  SupplierID: { type: Number },
   CompanyName: { type: String },
   ContactName: { type: String },
   ContactTitle: { type: String },
@@ -15,5 +15,5 @@ const supplierSchema: Schema = new Schema({
   HomePage: { type: String }
 });
 
-const SupplierModel: Model<ISupplierDocument> = model<ISupplierDocument>('Supplier', supplierSchema, 'Supplier');
+const SupplierModel: Model<ISupplierDocument> = model<ISupplierDocument>('Suppliers', supplierSchema, 'Suppliers');
 export { SupplierModel };
