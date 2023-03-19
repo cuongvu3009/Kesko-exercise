@@ -2,6 +2,10 @@ import { Response, Request, NextFunction } from 'express';
 import { OrderDetailsModel, OrderModel } from './order.schema';
 
 const getOrders = async (req: Request, res: Response, next: NextFunction) => {
+  const page = parseInt(req.query.page as string) || 1;
+  const limit = 50;
+  const skip = limit * (page - 1);
+
   try {
     const result = await OrderModel.aggregate([
       {
@@ -11,7 +15,9 @@ const getOrders = async (req: Request, res: Response, next: NextFunction) => {
           foreignField: 'CustomerID',
           as: 'CustomerInfo'
         }
-      }
+      },
+      { $skip: skip },
+      { $limit: limit }
     ]);
     res.send(result);
   } catch (error) {
