@@ -1,8 +1,8 @@
 .listItem-container {
   display: flex;
-  padding: 10px;
-  margin: 10px;
+  width: fit-content;
   border-bottom: 1px solid #ffff;
+  justify-content: center;
 }
 
 .listItem-info {
@@ -12,8 +12,7 @@
 
 .info {
   text-align: left;
-  padding: 5px;
-  max-width: 250px;
+  width: 200px;
 }
 
 .info-label {
@@ -21,10 +20,10 @@
 }
 
 .detail-btn {
-  margin: 25px;
-  padding: 10px;
+  margin: 25px 0;
+  padding: 5px;
   height: 80px;
-  width: 150px;
+  width: 100px;
   background-color: #c43531;
 }
 

@@ -6,7 +6,7 @@ export interface IProductDocument extends Document {
   SupplierID: number | ObjectId;
   CategoryID: number | ObjectId;
   ProductName: string;
-  Phone: string;
+  Phone?: string;
   QuantityPerUnit: string;
   UnitPrice: number;
   UnitsInStock: number;
