@@ -1,10 +1,13 @@
 import './app.css';
+import List from './components/list/List';
+import Search from './components/search/Search';
 
 export function App() {
   return (
     <>
       <div className='title'>
-        <h1>NORTHWIND</h1>
+        <Search />
+        <List />
       </div>
     </>
   );

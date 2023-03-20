@@ -1,0 +1,33 @@
+.listItem-container {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  border-bottom: 1px solid #ffff;
+}
+
+.listItem-info {
+  display: flex;
+  gap: 20px;
+}
+
+.info {
+  text-align: left;
+  padding: 5px;
+  max-width: 250px;
+}
+
+.info-label {
+  color: #c43531;
+}
+
+.detail-btn {
+  margin: 25px;
+  padding: 10px;
+  height: 80px;
+  width: 150px;
+  background-color: #c43531;
+}
+
+.info-text {
+  max-width: 250px;
+}
