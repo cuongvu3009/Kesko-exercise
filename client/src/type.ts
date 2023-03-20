@@ -1,6 +1,6 @@
-export interface IOrderDocument extends Document {
+export interface IOrderDocument {
   _id?: string;
-  OrderID?: number;
+  OrderID?: number | undefined;
   CustomerID?: string;
   EmployeeID?: number;
   OrderDate?: Date;
@@ -15,9 +15,15 @@ export interface IOrderDocument extends Document {
   ShipCountry?: string;
   CustomerInfo?: ICustomerDocument[];
   ordersData: any;
+  length?: number;
+  slice?: any;
 }
 
-export interface IOrderDetails extends Document {
+export interface IOrderData {
+  order: IOrderDocument;
+}
+
+export interface IOrderDetailst {
   OrderID?: number;
   ProductID?: number;
   UnitPrice?: number;
@@ -26,7 +32,7 @@ export interface IOrderDetails extends Document {
   ProductInfo?: IProductDocument[];
 }
 
-export interface ICustomerDocument extends Document {
+export interface ICustomerDocument {
   CustomerID?: string;
   CompanyName?: string;
   ContactName?: string;
@@ -40,7 +46,7 @@ export interface ICustomerDocument extends Document {
   Fax?: string;
 }
 
-export interface IProductDocument extends Document {
+export interface IProductDocument {
   ProductID?: number;
   SupplierID?: number;
   CategoryID: number;

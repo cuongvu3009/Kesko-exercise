@@ -23,7 +23,7 @@ const getOrders = async (req: Request, res: Response, next: NextFunction) => {
 const getOrderDetails = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await OrderDetailsModel.aggregate([
-      { $match: { OrderID: +req.params.orderId } },
+      { $match: { OrderID: +req.params.OrderID } },
       {
         $lookup: {
           from: 'Products',

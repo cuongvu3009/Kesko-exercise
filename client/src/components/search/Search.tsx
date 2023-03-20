@@ -2,7 +2,9 @@ import React from 'react';
 import './search.css';
 import { BsSearch } from 'react-icons/bs';
 
-const Search = () => {
+export interface ISearchComponentProps {}
+
+const Search: React.FunctionComponent<ISearchComponentProps> = () => {
   return (
     <div className='search-container'>
       <h2>Filter orders by product name</h2>

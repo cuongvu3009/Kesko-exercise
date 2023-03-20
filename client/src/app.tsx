@@ -1,12 +1,12 @@
+import './app.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import './app.css';
 import ListItem from './components/listItem/ListItem';
 import Pagination from './components/pagination/Pagination';
 import Search from './components/search/Search';
-import { IOrderDocument } from './type';
+import { IOrderData, IOrderDocument } from './type';
 
-export function App() {
+const App = () => {
   const [ordersData, setOrdersData] = useState<IOrderDocument[] | undefined>(
     []
   );
@@ -23,6 +23,7 @@ export function App() {
   const lastOrderIndex = currentPage * orderPerPage;
   const firstOrderIndex = lastOrderIndex - orderPerPage;
   const currentOrders = ordersData?.slice(firstOrderIndex, lastOrderIndex);
+  // console.log(currentOrders);
 
   return (
     <>
@@ -30,7 +31,7 @@ export function App() {
         <Search />
         <div className='list'>
           {currentOrders?.map((order: IOrderDocument) => {
-            return <ListItem {...order} />;
+            return <ListItem order={order} />;
           })}
         </div>
         <Pagination
@@ -42,4 +43,6 @@ export function App() {
       </div>
     </>
   );
-}
+};
+
+export default App;

@@ -10,7 +10,7 @@ class OrderRoutes {
 
   public routes(): Router {
     this.router.get('/orders', getOrders);
-    this.router.get('/orders/:orderId', getOrderDetails);
+    this.router.get('/orders/:OrderID', getOrderDetails);
     return this.router;
   }
 }
