@@ -5,15 +5,9 @@ import http from 'http';
 import cors from 'cors';
 import helmet from 'helmet';
 import hpp from 'hpp';
-import cookieSession from 'cookie-session';
 import HTTP_STATUS from 'http-status-codes';
 import compression from 'compression';
 import 'express-async-errors';
-
-//	socket.io/redis-adapter
-import { Server } from 'socket.io';
-import { createClient } from 'redis';
-import { createAdapter } from '@socket.io/redis-adapter';
 
 //	logger
 import Logger from 'bunyan';
@@ -25,7 +19,7 @@ import { IErrorResponse, CustomError } from './shared/global/helpers/error-handl
 
 const log: Logger = config.createLogger('server');
 
-export class ChattyServer {
+export class NodeServer {
   private app: Application;
 
   constructor(app: Application) {
@@ -41,14 +35,6 @@ export class ChattyServer {
   }
 
   private securityMiddleware(app: Application): void {
-    app.use(
-      cookieSession({
-        name: 'session',
-        keys: [config.SECRET_KEY_ONE!, config.SECRET_KEY_TWO!],
-        maxAge: 24 * 7 * 3600000,
-        secure: config.NODE_ENV !== 'development'
-      })
-    );
     app.use(hpp());
     app.use(helmet());
     app.use(
@@ -88,26 +74,10 @@ export class ChattyServer {
   private async startServer(app: Application): Promise<void> {
     try {
       const httpServer: http.Server = new http.Server(app);
-      const socketIO: Server = await this.createSocketIO(httpServer);
       this.startHttpServer(httpServer);
-      this.socketIOConnections(socketIO);
     } catch (error) {
       log.error(error);
     }
-  }
-
-  private async createSocketIO(httpServer: http.Server): Promise<Server> {
-    const io: Server = new Server(httpServer, {
-      cors: {
-        origin: config.CLIENT_URL,
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
-      }
-    });
-    const pubClient = createClient({ url: config.REDIS_HOST });
-    const subClient = pubClient.duplicate();
-    await Promise.all([pubClient.connect(), subClient.connect()]);
-    io.adapter(createAdapter(pubClient, subClient));
-    return io;
   }
 
   private startHttpServer(httpServer: http.Server): void {
@@ -116,8 +86,5 @@ export class ChattyServer {
     httpServer.listen(config.SERVER_PORT, () => {
       log.info(`Server running on port ${config.SERVER_PORT}`);
     });
-  }
-  private socketIOConnections(io: Server): void {
-    log.info('socketIOConnection');
   }
 }
