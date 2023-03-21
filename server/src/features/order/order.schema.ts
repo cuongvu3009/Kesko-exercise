@@ -3,7 +3,7 @@ import { IOrderDocument, IOrderDetails } from './order.interface';
 
 const orderSchema: Schema = new Schema({
   OrderID: { type: String },
-  CustomerID: { type: Schema.Types.ObjectId, ref: 'Customers' },
+  CustomerID: { type: String },
   EmployeeID: { type: Schema.Types.ObjectId, ref: 'Employees' },
   OrderDate: { type: Date },
   RequiredDate: { type: Date },

@@ -1,20 +1,10 @@
 import { Response, Request, NextFunction } from 'express';
-import { OrderDetailsModel, OrderModel } from './order.schema';
+import { OrderDetailsModel } from './order.schema';
+import orderService from './order.service';
 
 const getOrders = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await OrderModel.aggregate([
-      {
-        $lookup: {
-          from: 'Customers',
-          localField: 'CustomerID',
-          foreignField: 'CustomerID',
-          as: 'CustomerInfo'
-        }
-      }
-    ]);
-
-    res.status(200).json(result);
+    res.status(200).json(await orderService.getAll());
   } catch (error) {
     next(error);
   }

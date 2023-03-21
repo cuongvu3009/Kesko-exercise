@@ -15,7 +15,7 @@ import Logger from 'bunyan';
 //	routes
 import applicationRoutes from './routes';
 
-import { IErrorResponse, CustomError } from './shared/global/helpers/error-handler';
+import { IErrorResponse, CustomError } from './shared/error-handler';
 
 const log: Logger = config.createLogger('server');
 
