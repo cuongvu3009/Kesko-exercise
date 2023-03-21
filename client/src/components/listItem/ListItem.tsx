@@ -29,10 +29,10 @@ const ListItem = ({ order }: IOrderData) => {
       {orderDetails && isOpen && (
         <div className='popup-container'>
           <div className='popup-body'>
+            <h2 style={{ color: 'green' }}>Products List</h2>
             {orderDetails.map((i: any) => {
               return (
                 <>
-                  <h2></h2>
                   <h2>
                     #ID {i.ProductID}: {i.ProductInfo[0].ProductName} (
                     {i.Quantity}
