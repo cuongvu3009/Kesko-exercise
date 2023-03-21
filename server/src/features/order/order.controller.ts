@@ -1,5 +1,4 @@
 import { Response, Request, NextFunction } from 'express';
-import { OrderDetailsModel } from './order.schema';
 import orderService from './order.service';
 
 const getOrders = async (req: Request, res: Response, next: NextFunction) => {
@@ -12,19 +11,10 @@ const getOrders = async (req: Request, res: Response, next: NextFunction) => {
 
 const getOrderDetails = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await OrderDetailsModel.aggregate([
-      { $match: { OrderID: +req.params.OrderID } },
-      {
-        $lookup: {
-          from: 'Products',
-          localField: 'ProductID',
-          foreignField: 'ProductID',
-          as: 'ProductInfo'
-        }
-      }
-    ]);
+    const OrderID = +req.params.OrderID;
+    const result = await orderService.getDetails(OrderID);
 
-    res.send(result);
+    res.status(200).json(result);
   } catch (error) {
     next(error);
   }

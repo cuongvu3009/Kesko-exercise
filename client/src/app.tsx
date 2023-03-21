@@ -43,7 +43,7 @@ const App = () => {
           </div>
         </div>
 
-        {typing.length > 5 && (
+        {typing?.length > 5 && (
           <h3 style={{ color: 'red' }}>Invalid product ID</h3>
         )}
 

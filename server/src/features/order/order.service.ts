@@ -1,4 +1,4 @@
-import { OrderModel } from './order.schema';
+import { OrderDetailsModel, OrderModel } from './order.schema';
 
 const getAll = async () => {
   try {
@@ -18,4 +18,23 @@ const getAll = async () => {
   }
 };
 
-export default { getAll };
+const getDetails = async (OrderID: any) => {
+  try {
+    const result = await OrderDetailsModel.aggregate([
+      { $match: { OrderID } },
+      {
+        $lookup: {
+          from: 'Products',
+          localField: 'ProductID',
+          foreignField: 'ProductID',
+          as: 'ProductInfo'
+        }
+      }
+    ]);
+    return result;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
+
+export default { getAll, getDetails };
