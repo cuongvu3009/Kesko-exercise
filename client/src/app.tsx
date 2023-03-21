@@ -1,15 +1,16 @@
 import './app.css';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ListItem from './components/listItem/ListItem';
 import Pagination from './components/pagination/Pagination';
-import Search from './components/search/Search';
-import { IOrderData, IOrderDocument } from './type';
+import { IOrderDocument } from './type';
+import { BsSearch } from 'react-icons/bs';
 
 const App = () => {
   const [ordersData, setOrdersData] = useState<IOrderDocument[] | undefined>(
     []
   );
+  const [typing, setTyping] = useState<any | undefined>();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [orderPerPage, setOrderPerPage] = useState<number>(20);
 
@@ -23,16 +24,35 @@ const App = () => {
   const lastOrderIndex = currentPage * orderPerPage;
   const firstOrderIndex = lastOrderIndex - orderPerPage;
   const currentOrders = ordersData?.slice(firstOrderIndex, lastOrderIndex);
-  // console.log(currentOrders);
 
   return (
     <>
       <div className='title'>
-        <Search />
+        <div className='search-container'>
+          <h2>Filter order by Product ID</h2>
+          <div className='search-box'>
+            <input
+              type='text'
+              placeholder='eg. 10248'
+              className='search-input'
+              onChange={(e: any) => setTyping(e.target.value.trim())}
+            />
+            <button>
+              <BsSearch />
+            </button>
+          </div>
+        </div>
+
         <div className='list'>
-          {currentOrders?.map((order: IOrderDocument) => {
-            return <ListItem order={order} />;
-          })}
+          {typing?.length == 5
+            ? ordersData
+                ?.filter((e) => e.OrderID == typing)
+                .map((order: IOrderDocument) => {
+                  return <ListItem order={order} />;
+                })
+            : currentOrders?.map((order: IOrderDocument) => {
+                return <ListItem order={order} />;
+              })}
         </div>
         <Pagination
           totalPosts={ordersData?.length}
