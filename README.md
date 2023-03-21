@@ -70,7 +70,7 @@ Clone the repo into your all local machine
 - In server folder, create .env file with the key-pair values
   - DATABASE*URL \_MongoDB database*
   - NODE_ENV \_development state
-  - SERVER*PORT \_port to run express server locally*
+  - SERVER_PORT \_port to run express server locally\*
   - REDIS_HOST \_Redis url for setup service
   - REDIS_PASSWORD \_Personal redis password
   - REDIS_PORT \_port to run redis
