@@ -1,0 +1,15 @@
+@baseUrl = http://localhost:5000
+
+@urlPath = api/v1
+
+
+### Get all orders
+GET {{baseUrl}}/{{urlPath}}/orders
+Content-Type: application/json
+Accept: application/json
+
+
+### Get order by orderID
+GET {{baseUrl}}/{{urlPath}}/orders/10248
+Content-Type: application/json
+Accept: application/json
