@@ -2,9 +2,9 @@ import { model, Model, Schema } from 'mongoose';
 import { IOrderDocument, IOrderDetails } from './order.interface';
 
 const orderSchema: Schema = new Schema({
-  OrderID: { type: String },
+  OrderID: { type: Number },
   CustomerID: { type: String },
-  EmployeeID: { type: Schema.Types.ObjectId, ref: 'Employees' },
+  EmployeeID: { type: Number },
   OrderDate: { type: Date },
   RequiredDate: { type: Date },
   ShippedDate: { type: Date },
@@ -19,7 +19,7 @@ const orderSchema: Schema = new Schema({
 
 const orderDetailsSchema: Schema = new Schema({
   OrderID: { type: Number },
-  ProductID: { type: Schema.Types.ObjectId, ref: 'Products' },
+  ProductID: { type: Number },
   UnitPrice: { type: Number },
   Quantity: { type: Number },
   Discount: { type: Number }

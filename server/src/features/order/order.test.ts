@@ -1,5 +1,5 @@
-import { OrderModel } from './order.schema';
-import { order1, order2 } from './order.fixture';
+import { OrderDetailsModel, OrderModel } from './order.schema';
+import { order1, order2, orderDetails1 } from './order.fixture';
 import connect, { MongodHelper } from '../../shared/db-helper';
 import { orderService } from './order.service';
 
@@ -11,6 +11,7 @@ beforeAll(async () => {
 
 beforeEach(async () => {
   await OrderModel.insertMany([order1, order2]);
+  await OrderDetailsModel.insertMany([orderDetails1]);
 });
 
 afterEach(async () => {
@@ -26,5 +27,13 @@ describe('Test orderService', () => {
     const orders = await orderService.getAll();
 
     expect(orders?.length).toBe(2);
+    expect(orders[0]['CustomerID']).toBe('VINET');
+  });
+
+  test('Get orderDetails', async () => {
+    const orders = await orderService.getDetails(12345);
+
+    expect(orders?.length).toBe(1);
+    expect(orders[0]['OrderID']).toBe(12345);
   });
 });
