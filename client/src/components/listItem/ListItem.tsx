@@ -1,8 +1,7 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IOrderData, IOrderDetailst, IOrderDocument } from '../../type';
 import './listItem.css';
-import { Link } from 'react-router-dom';
 
 const ListItem = ({ order }: IOrderData) => {
   const [currentOrder, setCurrentOrder] = useState<IOrderDocument>();
@@ -52,10 +51,10 @@ const ListItem = ({ order }: IOrderData) => {
       <div className='listItem-container'>
         <div className='listItem-info'>
           <div className='info'>
-            <label htmlFor='' className='info-label'>
+            <label htmlFor='' className='info-label mobile-hide'>
               Shopping address
             </label>
-            <h2 className='info-text'>
+            <h2 className='info-text mobile-hide'>
               {order.ShipAddress}, {order.ShipPostalCode}, {order.ShipCity},{' '}
               {order.ShipCountry}
             </h2>

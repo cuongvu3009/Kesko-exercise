@@ -38,7 +38,7 @@ const App = () => {
               onChange={(e: any) => setTyping(e.target.value.trim())}
             />
             <button>
-              <BsSearch />
+              <BsSearch color='white' />
             </button>
           </div>
         </div>
