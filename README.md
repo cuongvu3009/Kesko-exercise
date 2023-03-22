@@ -77,9 +77,5 @@ Clone the repo into your all local machine
 - In server folder, run `npm run populate` to populate data
 - In server folder, run `npm run test:watch` to test http endpoint
 
-## Pictures
-![productDetailsBigScreen](https://user-images.githubusercontent.com/39565575/227050389-9affb469-7619-4b1d-aca7-1546d9e18a16.png)
-![smallScreen](https://user-images.githubusercontent.com/39565575/227050393-753c56e9-a2ec-42c7-a2ba-d78191c84e41.png)
-![productDetailsSmallScreen](https://user-images.githubusercontent.com/39565575/227050395-2eca85f1-57f9-4cc2-9012-5fb5fb5cd100.png)
-![Bigscreen](https://user-images.githubusercontent.com/39565575/227050398-739f7d9d-2823-4265-b726-22279e4423f3.png)
+
 
