@@ -1,7 +1,7 @@
 import { OrderModel } from './order.schema';
 import { order1, order2 } from './order.fixture';
 import connect, { MongodHelper } from '../../shared/db-helper';
-import orderService from './order.service';
+import { orderService } from './order.service';
 
 let mongodHelper: MongodHelper;
 

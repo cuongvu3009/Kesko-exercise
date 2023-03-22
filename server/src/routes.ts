@@ -1,4 +1,3 @@
-import { categoryRoutes } from '@category/category.route';
 import { Application } from 'express';
 import { orderRoutes } from './features/order/order.route';
 

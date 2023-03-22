@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { getOrderDetails, getOrders } from './order.controller';
+import { orderController } from './order.controller';
 
 class OrderRoutes {
   private router: Router;
@@ -9,8 +9,8 @@ class OrderRoutes {
   }
 
   public routes(): Router {
-    this.router.get('/orders', getOrders);
-    this.router.get('/orders/:OrderID', getOrderDetails);
+    this.router.get('/orders', orderController.getOrders);
+    this.router.get('/orders/:OrderID', orderController.getOrderDetails);
     return this.router;
   }
 }

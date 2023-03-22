@@ -1,7 +1,8 @@
+import { IOrderDocument } from './order.interface';
 import { OrderDetailsModel, OrderModel } from './order.schema';
 
-const getAll = async () => {
-  try {
+class OrderService {
+  public getAll = async (): Promise<IOrderDocument[]> => {
     const result = await OrderModel.aggregate([
       {
         $lookup: {
@@ -13,13 +14,9 @@ const getAll = async () => {
       }
     ]);
     return result;
-  } catch (e: any) {
-    throw new Error(e);
-  }
-};
+  };
 
-const getDetails = async (OrderID: any) => {
-  try {
+  public getDetails = async (OrderID: number) => {
     const result = await OrderDetailsModel.aggregate([
       { $match: { OrderID } },
       {
@@ -32,9 +29,7 @@ const getDetails = async (OrderID: any) => {
       }
     ]);
     return result;
-  } catch (error: any) {
-    throw new Error(error);
-  }
-};
+  };
+}
 
-export default { getAll, getDetails };
+export const orderService = new OrderService();
