@@ -1,6 +1,6 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { IOrderData, IOrderDetailst, IOrderDocument } from '../../type';
+import { axiosInstance } from '../../util/axiosIntance';
 import './listItem.css';
 
 const ListItem = ({ order }: IOrderData) => {
@@ -15,8 +15,7 @@ const ListItem = ({ order }: IOrderData) => {
 
   if (currentOrder) {
     useEffect(() => {
-      axios
-        .get(`http://localhost:5000/api/v1/orders/${currentOrder}`)
+      axiosInstance(`/orders/${currentOrder}`)
         .then((data) => setOrderDetails(data.data))
         .catch((err) => console.log(err));
     }, []);

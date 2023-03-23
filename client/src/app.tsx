@@ -1,5 +1,5 @@
 import './app.css';
-import axios from 'axios';
+import { axiosInstance } from './util/axiosIntance';
 import { useEffect, useState } from 'react';
 import ListItem from './components/listItem/ListItem';
 import Pagination from './components/pagination/Pagination';
@@ -15,8 +15,7 @@ const App = () => {
   const [orderPerPage, setOrderPerPage] = useState<number>(20);
 
   useEffect(() => {
-    axios
-      .get('http://localhost:5000/api/v1/orders')
+    axiosInstance('/orders')
       .then((data) => setOrdersData(data.data))
       .catch((err) => console.log(err));
   }, []);
