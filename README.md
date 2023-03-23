@@ -2,6 +2,8 @@
 
 This project use MERN stack to build a orders searching platform, where user can search for order details
 
+## Demo link: https://kesko-mern.netlify.app/
+
 ## Main stack
 
 ![React](https://img.shields.io/badge/React-v.18-grey?labelColor=blue)
@@ -67,6 +69,7 @@ This project use MERN stack to build a orders searching platform, where user can
 Clone the repo into your all local machine
 
 - In each folder, run `npm install` to add all the independencies. Check other scripts in the package.json files.
+- In each folder, run `npm run dev` to start
 - In server folder, create .env file with the key-pair values
   - DATABASE*URL \_MongoDB database*
   - NODE_ENV \_development state
@@ -76,6 +79,3 @@ Clone the repo into your all local machine
   - REDIS_PORT \_port to run redis
 - In server folder, run `npm run populate` to populate data
 - In server folder, run `npm run test:watch` to test http endpoint
-
-
-
