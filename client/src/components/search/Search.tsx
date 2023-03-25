@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react';
+import { IProductDocument } from '../../type';
 import { axiosInstance } from '../../util/axiosIntance';
 import Pagination from '../pagination/Pagination';
 import './search.css';
 
 const Search = () => {
-  const [products, setProducts] = useState<any>([]);
-  const [currentProduct, setCurrentProduct] = useState<any>();
+  const [products, setProducts] = useState<IProductDocument[]>([]);
+  const [currentProduct, setCurrentProduct] = useState<IProductDocument[]>();
   const [show, setShow] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [productPerPage, setProductPerPage] = useState<number>(20);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [currentShippedDate, setCurrentShippedDate] = useState();
+  const [currentShippedDate, setCurrentShippedDate] = useState<
+    Date | undefined
+  >();
 
-  const handleProductClick = async (ProductID: any) => {
+  const handleProductClick = async (ProductID: number) => {
     await axiosInstance
       .get(`/orders/find/${ProductID}`)
       .then((data) => {
@@ -48,10 +51,12 @@ const Search = () => {
           }}
         >
           <div className='list'>
-            {currentProducts.map((product: any) => {
+            {currentProducts.map((product: IProductDocument) => {
               return (
                 <button
-                  onClick={() => handleProductClick(product.ProductID)}
+                  onClick={() =>
+                    handleProductClick(product.ProductID as number)
+                  }
                   style={{ margin: '5px', backgroundColor: '#c43531' }}
                 >
                   {product.ProductName}
