@@ -14,7 +14,12 @@ GET {{baseUrl}}/{{urlPath}}/orders/10248
 Content-Type: application/json
 Accept: application/json
 
-### Get order by product name
+### Get order by product id
 GET {{baseUrl}}/{{urlPath}}/orders/find/1
+Content-Type: application/json
+Accept: application/json
+
+### Get all products
+GET {{baseUrl}}/{{urlPath}}/products
 Content-Type: application/json
 Accept: application/json
