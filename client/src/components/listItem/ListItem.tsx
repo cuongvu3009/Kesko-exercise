@@ -23,7 +23,7 @@ const ListItem = ({ order }: IOrderData) => {
 
   return (
     <>
-      {/* popup to show single game info */}
+      {/* popup to show single order info */}
       {orderDetails && isOpen && (
         <div className='popup-container'>
           <div className='popup-body'>
@@ -31,11 +31,11 @@ const ListItem = ({ order }: IOrderData) => {
             {orderDetails.map((i: any) => {
               return (
                 <>
-                  <h2>
+                  <h4>
                     #ID {i.ProductID}: {i.ProductInfo[0].ProductName} (
                     {i.Quantity}
-                    kpl *{i.UnitPrice}€)
-                  </h2>
+                    kpl *{i.UnitPrice}€) - Discount: {i.Discount * 100}%
+                  </h4>
                 </>
               );
             })}

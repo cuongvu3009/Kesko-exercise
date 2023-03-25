@@ -5,6 +5,7 @@ import ListItem from './components/listItem/ListItem';
 import Pagination from './components/pagination/Pagination';
 import { IOrderDocument } from './type';
 import { BsSearch } from 'react-icons/bs';
+import Search from './components/search/Search';
 
 const App = () => {
   const [ordersData, setOrdersData] = useState<IOrderDocument[] | undefined>(
@@ -27,6 +28,7 @@ const App = () => {
   return (
     <>
       <div className='title'>
+        <Search />
         <div className='search-container'>
           <h2>Filter order by Product ID</h2>
           <div className='search-box'>
@@ -57,7 +59,9 @@ const App = () => {
                 return <ListItem order={order} />;
               })}
         </div>
+
         <Pagination
+          typing={typing}
           totalPosts={ordersData?.length}
           postsPerPage={orderPerPage}
           setCurrentPage={setCurrentPage}

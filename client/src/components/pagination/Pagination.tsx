@@ -7,6 +7,7 @@ const Pagination = ({
   postsPerPage,
   setCurrentPage,
   currentPage,
+  typing,
 }: any) => {
   let pages = [];
 
@@ -19,6 +20,7 @@ const Pagination = ({
       {pages.map((page, index) => {
         return (
           <button
+            disabled={typing}
             key={index}
             onClick={() => setCurrentPage(page)}
             className={page == currentPage ? 'active' : ''}
