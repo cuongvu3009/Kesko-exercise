@@ -87,7 +87,7 @@ const Search = () => {
                 {isCopied && 'Copied this text to clipboard'}
               </h3>
 
-              {showShip
+              {!showShip
                 ? currentProduct
                     .filter((i: any) => i.OrderInfo[0].ShippedDate !== null)
                     .map((i: any) => {
