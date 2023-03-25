@@ -50,25 +50,45 @@ const ListItem = ({ order }: IOrderData) => {
       <div className='listItem-container'>
         <div className='listItem-info'>
           <div className='info'>
-            <label htmlFor='' className='info-label mobile-hide'>
-              Shopping address
+            <label htmlFor='' className='info-label'>
+              OrderID
             </label>
-            <h2 className='info-text mobile-hide'>
+            <h3 className='info-text'>{order.OrderID}</h3>
+          </div>
+
+          <div className='info'>
+            <label htmlFor='' className='info-label mobile-hide'>
+              Ship address
+            </label>
+            <h3 className='info-text mobile-hide'>
               {order.ShipAddress}, {order.ShipPostalCode}, {order.ShipCity},{' '}
               {order.ShipCountry}
-            </h2>
+            </h3>
           </div>
+
           <div className='info'>
             <label htmlFor='' className='info-label'>
               Customer name
             </label>
-            <h2 className='info-text'>{order.CustomerInfo![0].ContactName}</h2>
+            <h3 className='info-text'>{order.CustomerInfo![0].ContactName}</h3>
           </div>
+
           <div className='info'>
-            <label htmlFor='' className='info-label'>
-              OrderID
+            <label htmlFor='' className='info-label mobile-hide'>
+              Order date
             </label>
-            <h2 className='info-text'>{order.OrderID}</h2>
+            <h3 className='info-text mobile-hide'>{order.OrderDate}</h3>
+          </div>
+
+          <div className='info'>
+            <label htmlFor='' className='info-label mobile-hide'>
+              Status
+            </label>
+            <h4 className='info-text mobile-hide'>
+              {order.ShippedDate
+                ? `Shipped on ${order.ShippedDate}`
+                : 'Not shipped'}
+            </h4>
           </div>
         </div>
         <button className='detail-btn' onClick={() => handleClick(order)}>
