@@ -18,7 +18,7 @@ const ListItem = ({ order }: IOrderData) => {
       axiosInstance(`/orders/${currentOrder}`)
         .then((data) => setOrderDetails(data.data))
         .catch((err) => console.log(err));
-    }, []);
+    }, [currentOrder]);
   }
 
   return (
