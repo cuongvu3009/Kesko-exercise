@@ -11,9 +11,8 @@ const Search = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [productPerPage, setProductPerPage] = useState<number>(20);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [currentShippedDate, setCurrentShippedDate] = useState<
-    Date | undefined
-  >();
+  const [isCopied, SetIsCopied] = useState<boolean>(false);
+  const [showShip, setShowShip] = useState<boolean>(false);
 
   const handleProductClick = async (ProductID: number) => {
     await axiosInstance
@@ -77,24 +76,56 @@ const Search = () => {
         <div>
           <div className='popup-container-search'>
             <div className='popup-body-search'>
-              <p className='shippedDate'>
-                {currentShippedDate
-                  ? `This order was shipped at: ${currentShippedDate}`
-                  : 'This order not yet shipped!'}
-              </p>
-              {currentProduct.map((i: any) => {
-                return (
-                  <div>
-                    <button
-                      onClick={() =>
-                        setCurrentShippedDate(i.OrderInfo[0].ShippedDate)
-                      }
-                    >
-                      {i.OrderID}
-                    </button>
-                  </div>
-                );
-              })}
+              <button
+                className='shipped-toggle'
+                onClick={() => setShowShip(!showShip)}
+              >
+                {showShip ? 'Show shipped orders only' : 'Show all orders'}
+              </button>
+
+              <h3 className='copied-text'>
+                {isCopied && 'Copied this text to clipboard'}
+              </h3>
+
+              {showShip
+                ? currentProduct
+                    .filter((i: any) => i.OrderInfo[0].ShippedDate !== null)
+                    .map((i: any) => {
+                      return (
+                        <div>
+                          <button
+                            onClick={() => {
+                              SetIsCopied(true);
+                              setTimeout(() => {
+                                SetIsCopied(false);
+                              }, 800);
+                              navigator.clipboard.writeText(
+                                'Copy this text to clipboard'
+                              );
+                            }}
+                          >
+                            {i.OrderID}
+                          </button>
+                        </div>
+                      );
+                    })
+                : currentProduct.map((i: any) => {
+                    return (
+                      <div>
+                        <button
+                          onClick={() => {
+                            SetIsCopied(true);
+                            setTimeout(() => {
+                              SetIsCopied(false);
+                            }, 800);
+                            navigator.clipboard.writeText(i.OrderID);
+                          }}
+                        >
+                          {i.OrderID}
+                        </button>
+                      </div>
+                    );
+                  })}
               <button
                 className='btn btn-search'
                 onClick={() => setIsOpen(false)}

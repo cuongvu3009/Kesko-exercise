@@ -32,9 +32,10 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.shippedDate {
-  top: 20px;
+.shipped-toggle {
+  top: 15px;
   position: absolute;
+  background-color: #1877f2;
 }
 
 .popup-container-search {
@@ -44,6 +45,11 @@
   bottom: 50px;
   position: absolute;
   background-color: #c43531;
+}
+
+.copied-text {
+  top: 30px;
+  position: absolute;
 }
 
 @media only screen and (max-width: 750px) {
@@ -62,7 +68,7 @@
     gap: 0.5px;
   }
 
-  .shippedDate {
-    top: 0;
+  .shipped-toggle {
+    top: 4px;
   }
 }
