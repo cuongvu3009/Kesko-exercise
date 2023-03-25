@@ -15,6 +15,6 @@ Content-Type: application/json
 Accept: application/json
 
 ### Get order by product name
-GET {{baseUrl}}/{{urlPath}}/orders/find/Singaporean
+GET {{baseUrl}}/{{urlPath}}/orders/find/1
 Content-Type: application/json
 Accept: application/json

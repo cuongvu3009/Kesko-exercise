@@ -28,6 +28,22 @@ class OrderController {
 
     res.status(200).json(result);
   };
+
+  public getOrderByProductId = async (req: Request, res: Response, next: NextFunction) => {
+    const ProductID = +req.params.ProductID;
+
+    if (!ProductID) {
+      throw new BadRequestError('Please provide ProductID');
+    }
+
+    if (typeof ProductID !== 'number') {
+      throw new BadRequestError('ProductID must be number');
+    }
+
+    const result = await orderService.getOrderByProductId(ProductID);
+
+    res.status(200).json(result);
+  };
 }
 
 export const orderController = new OrderController();

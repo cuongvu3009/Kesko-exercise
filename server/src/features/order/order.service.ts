@@ -1,3 +1,4 @@
+import { IProductDocument } from '../product/product.interface';
 import { IOrderDocument } from './order.interface';
 import { OrderDetailsModel, OrderModel } from './order.schema';
 
@@ -18,7 +19,6 @@ class OrderService {
 
   public getDetails = async (OrderID: number) => {
     const result = await OrderDetailsModel.aggregate([
-      { $match: { OrderID } },
       {
         $lookup: {
           from: 'Products',
@@ -26,9 +26,32 @@ class OrderService {
           foreignField: 'ProductID',
           as: 'ProductInfo'
         }
-      }
+      },
+      { $match: { OrderID } }
     ]);
     return result;
+  };
+
+  public getOrderByProductId = async (ProductID: number): Promise<IProductDocument[]> => {
+    return OrderDetailsModel.aggregate([
+      {
+        $lookup: {
+          from: 'Products',
+          localField: 'ProductID',
+          foreignField: 'ProductID',
+          as: 'Products'
+        }
+      },
+      {
+        $lookup: {
+          from: 'Orders',
+          localField: 'OrderID',
+          foreignField: 'OrderID',
+          as: 'OrderInfo'
+        }
+      },
+      { $match: { ProductID } }
+    ]);
   };
 }
 

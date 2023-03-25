@@ -11,6 +11,7 @@ class OrderRoutes {
   public routes(): Router {
     this.router.get('/orders', orderController.getOrders);
     this.router.get('/orders/:OrderID', orderController.getOrderDetails);
+    this.router.get('/orders/find/:ProductID', orderController.getOrderByProductId);
     return this.router;
   }
 }
