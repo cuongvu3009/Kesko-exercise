@@ -15,7 +15,7 @@ const ListItem = ({ order }: IOrderData) => {
 
   if (currentOrder) {
     useEffect(() => {
-      axiosInstance(`/orders/${currentOrder}`)
+      axiosInstance(`/orders/findbyid/${currentOrder}`)
         .then((data) => setOrderDetails(data.data))
         .catch((err) => console.log(err));
     }, [currentOrder]);

@@ -18,7 +18,7 @@ const SearchOrderProduct = () => {
 
   const handleProductClick = async (ProductID: number) => {
     await axiosInstance
-      .get(`/orders/find/${ProductID}`)
+      .get(`/orders/findbyproduct/${ProductID}`)
       .then((data) => {
         setIsOpen(true);
         setCurrentProduct(data.data);
