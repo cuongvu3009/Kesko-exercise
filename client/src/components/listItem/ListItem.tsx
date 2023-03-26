@@ -30,13 +30,13 @@ const ListItem = ({ order }: IOrderData) => {
             <h2 style={{ color: 'green' }}>Products List</h2>
             {orderDetails.map((i: any) => {
               return (
-                <>
-                  <h4>
+                <div>
+                  <h5>
                     #ID {i.ProductID}: {i.ProductInfo[0].ProductName} (
                     {i.Quantity}
                     kpl *{i.UnitPrice}€) - Discount: {i.Discount * 100}%
-                  </h4>
-                </>
+                  </h5>
+                </div>
               );
             })}
 

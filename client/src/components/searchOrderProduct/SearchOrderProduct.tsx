@@ -3,9 +3,9 @@ import { BsSearch } from 'react-icons/bs';
 import { IProductDocument } from '../../type';
 import { axiosInstance } from '../../util/axiosIntance';
 import Pagination from '../pagination/Pagination';
-import './search.css';
+import './searchOrderProduct.css';
 
-const Search = () => {
+const SearchOrderProduct = () => {
   const [products, setProducts] = useState<IProductDocument[]>([]);
   const [currentProduct, setCurrentProduct] = useState<IProductDocument[]>();
   const [show, setShow] = useState<boolean>(false);
@@ -165,4 +165,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchOrderProduct;
