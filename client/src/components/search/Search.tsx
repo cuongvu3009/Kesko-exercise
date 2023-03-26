@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BsSearch } from 'react-icons/bs';
 import { IProductDocument } from '../../type';
 import { axiosInstance } from '../../util/axiosIntance';
 import Pagination from '../pagination/Pagination';
@@ -13,6 +14,7 @@ const Search = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isCopied, SetIsCopied] = useState<boolean>(false);
   const [showShip, setShowShip] = useState<boolean>(false);
+  const [typing, setTyping] = useState<string>('');
 
   const handleProductClick = async (ProductID: number) => {
     await axiosInstance
@@ -50,18 +52,43 @@ const Search = () => {
           }}
         >
           <div className='list'>
-            {currentProducts.map((product: IProductDocument) => {
-              return (
-                <button
-                  onClick={() =>
-                    handleProductClick(product.ProductID as number)
-                  }
-                  style={{ margin: '5px', backgroundColor: '#c43531' }}
-                >
-                  {product.ProductName}
-                </button>
-              );
-            })}
+            <div className='search-box'>
+              <input
+                type='text'
+                placeholder='eg. Chai'
+                className='search-input'
+                onChange={(e: any) => {
+                  let words = e.target.value
+                    .toLowerCase()
+                    .split(' ')
+                    .map(
+                      (word: string) =>
+                        word.charAt(0).toUpperCase() + word.slice(1)
+                    )
+                    .join(' ');
+
+                  setTyping(words);
+                }}
+              />
+              <button>
+                <BsSearch color='white' />
+              </button>
+            </div>
+
+            {currentProducts
+              ?.filter((e) => e.ProductName?.includes(typing))
+              .map((product: IProductDocument) => {
+                return (
+                  <button
+                    onClick={() =>
+                      handleProductClick(product.ProductID as number)
+                    }
+                    style={{ margin: '5px', backgroundColor: '#c43531' }}
+                  >
+                    {product.ProductName}
+                  </button>
+                );
+              })}
           </div>
           <Pagination
             totalPosts={products?.length}
