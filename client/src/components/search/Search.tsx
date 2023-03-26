@@ -126,9 +126,7 @@ const Search = () => {
                               setTimeout(() => {
                                 SetIsCopied(false);
                               }, 800);
-                              navigator.clipboard.writeText(
-                                'Copy this text to clipboard'
-                              );
+                              navigator.clipboard.writeText(i.OrderID);
                             }}
                           >
                             {i.OrderID}
