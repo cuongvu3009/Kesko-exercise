@@ -30,12 +30,13 @@ services:
       context: ./client
       dockerfile: Dockerfile
     volumes:
-      - ./client/src:/app/src
+      - ./client/src:/client/src
       # Use bind mount as the volume for frontend
     ports:
       - '5173:5173'
     depends_on:
       - backend # tell frontend service to be built only after backend service is sucessfully buit
+
 volumes:
   #if there is no need of mongo, then remove this mongo-db volume
   mongo-db:
