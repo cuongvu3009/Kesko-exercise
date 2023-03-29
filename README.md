@@ -79,3 +79,10 @@ Clone the repo into your all local machine
   - REDIS_PORT \_port to run redis
 - In server folder, run `npm run populate` to populate data
 - In server folder, run `npm run test:watch` to test http endpoint
+
+## Using with Docker
+
+- In terminal, run `docker pull cuongvu3009/mongo` to pull mongodb image from docker hub
+- In terminal, after successfully pull mongodb image, run `docker pull cuongvu3009/keskoexercise-backend` to pull backend image from docker hub
+- Open Docker Desktop, can be download via this link: https://www.docker.com/products/docker-desktop/
+- Inde image tag which is on the left of a side menu, run mongodb image then run backend image

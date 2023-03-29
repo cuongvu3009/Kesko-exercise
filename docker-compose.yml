@@ -10,11 +10,12 @@ services:
     ports:
       - '27017:27017'
   backend:
+    image: keskoexercise-backend
     build:
       context: ./api
       dockerfile: Dockerfile
     ports:
-      - '8080:8080'
+      - '5000:5000'
     volumes:
       - ./api/src:/api/src
       #- In Dockerfile of api folder, we specify the WORKDIR as /api
@@ -24,6 +25,7 @@ services:
     depends_on:
       - database
   frontend:
+    image: keskoexercise-frontend
     build:
       context: ./client
       dockerfile: Dockerfile
@@ -31,7 +33,7 @@ services:
       - ./client/src:/app/src
       # Use bind mount as the volume for frontend
     ports:
-      - '3000:3000'
+      - '5173:5173'
     depends_on:
       - backend # tell frontend service to be built only after backend service is sucessfully buit
 volumes:

@@ -4,5 +4,5 @@ COPY package.json ./
 RUN npm install --force && npm install -g nodemon
 # if we run CMD with dev, then the image needs to have nodemon installed also
 COPY . ./
-EXPOSE 8080
+EXPOSE 5000
 CMD ["npm", "run", "dev"]
