@@ -74,9 +74,6 @@ Clone the repo into your all local machine
   - DATABASE*URL \_MongoDB database*
   - NODE_ENV \_development state
   - SERVER_PORT \_port to run express server locally\*
-  - REDIS_HOST \_Redis url for setup service
-  - REDIS_PASSWORD \_Personal redis password
-  - REDIS_PORT \_port to run redis
 - In server folder, run `npm run populate` to populate data
 - In server folder, run `npm run test:watch` to test http endpoint
 
