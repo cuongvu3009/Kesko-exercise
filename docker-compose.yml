@@ -3,14 +3,14 @@ services:
   # mongo database is only needed if your project use local mongodb driver
   # if you use mongo atlas, remove this service from docker compose file
   database:
-    image: mongo
+    image: cuongvu3009/mongo:ver1
     volumes:
       - mongo-db:/data/db
       # create a docker volume called mongo-db and attach to mongo database storage
     ports:
       - '27017:27017'
   backend:
-    image: keskoexercise-backend
+    image: cuongvu3009/keskoexercise-backend:ver1
     build:
       context: ./api
       dockerfile: Dockerfile
@@ -25,7 +25,7 @@ services:
     depends_on:
       - database
   frontend:
-    image: keskoexercise-frontend
+    image: cuongvu3009/keskoexercise-frontend:ver1
     build:
       context: ./client
       dockerfile: Dockerfile
