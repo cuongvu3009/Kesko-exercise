@@ -79,8 +79,18 @@ Clone the repo into your all local machine
 
 ## Using with Docker
 
+### Requirement, do it first before choosing option
+
+Getting Docker Desktop, can be download via this link: https://www.docker.com/products/docker-desktop/
+
+### Option 1 (Recommended)
+
+- `git clone https://github.com/cuongvu3009/Kesko-exercise.git` Clone the repo into your all local machine
+- In main folder, run `docker compose up` in terminal to run docker environment locally
+
+### Option 2
+
 - In terminal, run `docker pull cuongvu3009/mongo:ver1` to pull mongodb image from docker hub
 - In terminal, run `docker pull cuongvu3009/keskoexercise-backend:ver1` to pull backend image from docker hub
 - In terminal, run `docker pull cuongvu3009/keskoexercise-frontend:ver1` to pull frontend image from docker hub
-- Open Docker Desktop, can be download via this link: https://www.docker.com/products/docker-desktop/
 - Inside image tab which is on the left of a side menu, run mongodb image -> run backend image -> run frontend image, please set port for each image in optional settings before running it
