@@ -80,6 +80,7 @@ Clone the repo into your all local machine
 ## Using with Docker
 
 - In terminal, run `docker pull cuongvu3009/mongo:ver1` to pull mongodb image from docker hub
-- In terminal, after successfully pull mongodb image, run `docker pull cuongvu3009/keskoexercise-backend:ver1` to pull backend image from docker hub
+- In terminal, run `docker pull cuongvu3009/keskoexercise-backend:ver1` to pull backend image from docker hub
+- In terminal, run `docker pull cuongvu3009/keskoexercise-frontend:ver1` to pull frontend image from docker hub
 - Open Docker Desktop, can be download via this link: https://www.docker.com/products/docker-desktop/
-- Inde image tag which is on the left of a side menu, run mongodb image then run backend image, please set port in optional settings before run it
+- Inside image tab which is on the left of a side menu, run mongodb image -> run backend image -> run frontend image, please set port for each image in optional settings before running it
