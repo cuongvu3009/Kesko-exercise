@@ -24,6 +24,10 @@ const SearchOrderId = () => {
   const firstOrderIndex = lastOrderIndex - orderPerPage;
   const currentOrders = ordersData?.slice(firstOrderIndex, lastOrderIndex);
 
+  if (!ordersData?.length) {
+    return <h3>Loading...</h3>;
+  }
+
   return (
     <>
       <div className='search-container'>
